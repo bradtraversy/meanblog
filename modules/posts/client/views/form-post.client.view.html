@@ -1,0 +1,39 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.post._id ? 'Edit Post' : 'New Post'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.postForm" class="form-horizontal" ng-submit="vm.save(vm.form.postForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="title">Title</label>
+          <input name="title" type="text" ng-model="vm.post.title" id="title" class="form-control" placeholder="Title" required>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="body">Body</label>
+          <textarea name="body" type="text" ng-model="vm.post.body" id="body" class="form-control" placeholder="Body" required></textarea>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="tags">Tags</label>
+          <input name="tags" type="text" ng-model="vm.post.tags" id="title" class="form-control" placeholder="Tags" required>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="category">Category</label>
+          <select name="category" ng-model="vm.post.category" id="category" class="form-control" required>
+            <option value=""> --- Please select --- </option>
+            <option value="Business">Business</option>
+            <option value="Education">Education</option>
+            <option value="Other">Other</option>
+            <option value="Technology">Technology</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.post._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>
